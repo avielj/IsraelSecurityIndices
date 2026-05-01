@@ -42,18 +42,16 @@ def fetch(url: str) -> str:
 def parse(html: str) -> dict:
     # Price: first data-val after שער אחרון
     pm = re.search(r'שער אחרון</p>[\s\S]{1,200}?data-val="([\d.]+)"', html)
-    # Change: data-val + posneg class after שינוי יומי
+    # Change: data-val inside the שינוי יומי ipt_box (value already carries sign, e.g. "-0.06" or "1.75")
     cm = re.search(
-        r'שינוי יומי</p>[\s\S]{1,300}?class="([^"]*posneg[^"]*)"[^>]*data-val="([\d.]+)"',
+        r'שינוי יומי</p>[\s\S]{1,300}?data-val="([+-]?[\d.]+)"[^>]*data-suf="%"',
         html,
     )
     if not (pm and cm):
         return None
 
     price = float(pm.group(1))
-    cls   = cm.group(1).replace("posneg", "")
-    is_neg = bool(re.search(r"\bneg\b", cls))
-    pct_num = float(cm.group(2)) * (-1 if is_neg else 1)
+    pct_num = float(cm.group(1))
 
     return {
         "price":    f"{price:,.2f}",
@@ -91,8 +89,9 @@ def main():
     print(json.dumps(payload, ensure_ascii=False, indent=2))
 
     if errors:
-        print("ERRORS:", errors, file=sys.stderr)
-        sys.exit(1)
+        # Print errors but don't fail the workflow — partial data is still useful.
+        # The widget gracefully handles ok=false entries by showing "—".
+        print("WARNINGS (partial failures):", errors, file=sys.stderr)
 
 
 if __name__ == "__main__":
