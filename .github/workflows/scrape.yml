@@ -1,0 +1,36 @@
+name: Scrape Indices
+
+on:
+  schedule:
+    # Every 15 minutes, Sun–Thu (Israeli market days), 08:00–18:00 Israel time
+    # Israel is UTC+3 (IDT in summer), so 05:00–15:00 UTC
+    - cron: "0,15,30,45 5-15 * * 0,1,2,3,4"
+  workflow_dispatch: # allow manual trigger from the Actions tab
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit data.json back to the repo
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run scraper
+        run: python scraper/fetch_indices.py
+
+      - name: Commit data.json if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          # only commit when data.json actually changed
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "chore: update index data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
