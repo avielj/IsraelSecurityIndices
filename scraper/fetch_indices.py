@@ -3,12 +3,22 @@
 Scrapes מדד בטחוניות and מדד תשתיות from indx.co.il
 and writes /data.json to the repo root.
 Run by GitHub Actions every 15 minutes during market hours.
+
+Requires:  pip install curl-cffi
+  curl_cffi impersonates Chrome's TLS fingerprint, bypassing Cloudflare's
+  bot detection that blocks Python urllib/requests from datacenter IPs.
 """
 import json
 import re
 import sys
-import urllib.request
 from datetime import datetime, timezone
+
+try:
+    from curl_cffi import requests as cffi_requests
+    _USE_CFFI = True
+except ImportError:
+    import urllib.request
+    _USE_CFFI = False
 
 INDICES = [
     {
@@ -25,18 +35,33 @@ INDICES = [
     },
 ]
 
-HEADERS = {
-    "Accept-Language": "he-IL,he;q=0.9",
+# Fallback headers for urllib (used when curl_cffi is unavailable)
+_URLLIB_HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (compatible; GitHubActions; +https://github.com)"
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
 }
 
 
 def fetch(url: str) -> str:
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=15) as r:
-        return r.read().decode("utf-8")
+    """Fetch URL, impersonating Chrome via curl_cffi if available."""
+    if _USE_CFFI:
+        r = cffi_requests.get(url, impersonate="chrome124", timeout=20)
+        r.raise_for_status()
+        return r.text
+    # Fallback: stdlib urllib with browser-like headers
+    import gzip
+    req = urllib.request.Request(url, headers=_URLLIB_HEADERS)
+    with urllib.request.urlopen(req, timeout=20) as r:
+        raw = r.read()
+        if r.info().get("Content-Encoding") == "gzip":
+            raw = gzip.decompress(raw)
+        return raw.decode("utf-8")
 
 
 def parse(html: str) -> dict:

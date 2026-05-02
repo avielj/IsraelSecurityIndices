@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--
+  Israel Security Indices — Android PWA Widget
+  ─────────────────────────────────────────────
+  Mirrors the iOS Scriptable widget for Android.
+
+  SETUP:
+    1. Enable GitHub Pages on this repo (Settings → Pages → main / root).
+    2. Open Chrome on Android and navigate to:
+         https://YOUR_USERNAME.github.io/YOUR_REPO/android/widget.html
+    3. Tap  ⋮ → "Add to Home screen"  and confirm.
+    4. The shortcut behaves like the iOS widget — tap to open the index page.
+
+  DATA:
+    Fetches the same data.json that GitHub Actions updates every 15 min.
+    Change DATA_URL below if you forked the repo.
+-->
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>מדדים</title>
+
+  <link rel="manifest" href="manifest.json" />
+
+  <style>
+    /* ── Reset & base ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #000000;
+      --card:    #1c1c1e;
+      --green:   #30d158;
+      --red:     #ff453a;
+      --neutral: #636366;
+      --white:   #ffffff;
+      --gray:    #8e8e93;
+      --sep:     #2c2c2e;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100svh;
+      padding: env(safe-area-inset-top, 16px) env(safe-area-inset-right, 16px)
+               env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 16px);
+      padding-top: max(env(safe-area-inset-top), 16px);
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 0 4px 12px;
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .header-time {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* ── Cards grid ──────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      -webkit-tap-highlight-color: rgba(255,255,255,0.08);
+      transition: opacity 0.15s;
+    }
+
+    .card:active { opacity: 0.7; }
+
+    .card-ticker {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 0.5px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .card-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      direction: ltr;
+      text-align: right;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-price.long { font-size: 17px; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      direction: ltr;
+      text-align: right;
+      align-self: flex-start;
+    }
+
+    .badge.green   { background: var(--green); }
+    .badge.red     { background: var(--red); }
+    .badge.neutral { background: var(--neutral); }
+
+    .card-name {
+      font-size: 9px;
+      color: var(--gray);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      direction: rtl;
+    }
+
+    /* ── Status / error ──────────────────────────────────────── */
+    .status {
+      text-align: center;
+      color: var(--gray);
+      font-size: 12px;
+      padding: 8px 0 0;
+    }
+
+    /* ── Spinner ─────────────────────────────────────────────── */
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--sep);
+      border-top-color: var(--gray);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-wrap {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Refresh button ──────────────────────────────────────── */
+    .refresh-btn {
+      background: none;
+      border: 1px solid var(--sep);
+      color: var(--gray);
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      margin: 12px auto 0;
+      display: block;
+    }
+    .refresh-btn:active { opacity: 0.6; }
+  </style>
+</head>
+<body>
+
+  <div id="root">
+    <div class="loading-wrap"><div class="spinner"></div></div>
+  </div>
+
+  <script>
+    // ── Config ────────────────────────────────────────────────
+    // Change this to your fork's raw data.json URL if needed:
+    const DATA_URL =
+      "https://raw.githubusercontent.com/avielj/IsraelSecurityIndices/main/data.json";
+
+    const REFRESH_MS = 15 * 60 * 1000; // 15 minutes
+
+    // ── Helpers ───────────────────────────────────────────────
+    function badgeClass(d) {
+      if (!d.ok || d.pct === "—") return "neutral";
+      return d.pctNum >= 0 ? "green" : "red";
+    }
+
+    function formatTime(iso) {
+      if (!iso) return "";
+      try {
+        return new Date(iso).toLocaleTimeString("he-IL", {
+          hour: "2-digit", minute: "2-digit", timeZone: "Asia/Jerusalem"
+        });
+      } catch (_) { return ""; }
+    }
+
+    // ── Render ────────────────────────────────────────────────
+    function render(json) {
+      const data      = json ? json.indices : null;
+      const updatedAt = json ? json.updatedAt : null;
+
+      const ts = formatTime(updatedAt);
+
+      if (!data) {
+        document.getElementById("root").innerHTML = `
+          <div class="header">
+            <span class="header-title">📈&nbsp; מדדים</span>
+          </div>
+          <div class="loading-wrap" style="flex-direction:column;gap:12px">
+            <div style="color:var(--neutral);font-size:14px">לא ניתן לטעון נתונים</div>
+            <button class="refresh-btn" onclick="load()">נסה שוב</button>
+          </div>`;
+        return;
+      }
+
+      const cardsHtml = data.map(d => `
+        <a class="card" href="${d.tapUrl}" target="_blank" rel="noopener">
+          <div class="card-ticker">${d.short}</div>
+          <div class="card-price${d.price.length > 8 ? ' long' : ''}">${d.price}</div>
+          <span class="badge ${badgeClass(d)}">${d.pct}</span>
+          <div class="card-name">${d.name}</div>
+        </a>`).join("");
+
+      document.getElementById("root").innerHTML = `
+        <div class="header">
+          <span class="header-title">📈&nbsp; מדדים</span>
+          <span class="header-time">${ts ? "עודכן " + ts : ""}</span>
+        </div>
+        <div class="cards">${cardsHtml}</div>
+        <p class="status">מתרענן כל 15 דקות</p>`;
+    }
+
+    // ── Fetch ─────────────────────────────────────────────────
+    async function load() {
+      try {
+        const res  = await fetch(DATA_URL + "?t=" + Date.now());
+        const json = await res.json();
+        render(json);
+      } catch (_) {
+        render(null);
+      }
+    }
+
+    // ── Boot ──────────────────────────────────────────────────
+    load();
+    setInterval(load, REFRESH_MS);
+
+    // Refresh when tab becomes visible again (e.g. after phone unlock)
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) load();
+    });
+
+    // ── Service Worker registration (enables PWA install) ─────
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>

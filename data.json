@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-05-01T15:44:11Z",
+  "updatedAt": "2026-05-02T16:05:30Z",
   "indices": [
     {
       "name": "מדד בטחוניות",
       "short": "BITCHONI",
       "url": "https://indx.co.il/index/2160-index/",
       "tapUrl": "https://indx.co.il/index/2160-index/",
-      "price": "8,450.79",
-      "pct": "+1.75%",
-      "pctNum": 1.75,
+      "price": "8,580.71",
+      "pct": "+1.54%",
+      "pctNum": 1.54,
       "positive": true,
       "ok": true
     },
@@ -17,10 +17,10 @@
       "short": "TASHTIOT",
       "url": "https://indx.co.il/index/2156-index/",
       "tapUrl": "https://indx.co.il/index/2156-index/",
-      "price": "3,103.92",
-      "pct": "-0.06%",
-      "pctNum": -0.06,
-      "positive": false,
+      "price": "3,168.77",
+      "pct": "+2.09%",
+      "pctNum": 2.09,
+      "positive": true,
       "ok": true
     }
   ]

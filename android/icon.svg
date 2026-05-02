@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="#1c1c1e"/>
+
+  <!-- Stock chart polyline (upward trending) -->
+  <polyline
+    points="64,368  144,280  208,320  288,176  368,200  448,104"
+    fill="none"
+    stroke="#30d158"
+    stroke-width="28"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Dot at the latest point -->
+  <circle cx="448" cy="104" r="22" fill="#30d158"/>
+</svg>
