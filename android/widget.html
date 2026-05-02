@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <!--
-  Israel Security Indices — Android PWA Widget
-  ─────────────────────────────────────────────
-  Mirrors the iOS Scriptable widget for Android.
+  Israel Security Indices — Android Widget
+  ────────────────────────────────────────
+  Works as a LOCAL FILE — no server or GitHub Pages needed.
 
-  SETUP:
-    1. Enable GitHub Pages on this repo (Settings → Pages → main / root).
-    2. Open Chrome on Android and navigate to:
-         https://YOUR_USERNAME.github.io/YOUR_REPO/android/widget.html
-    3. Tap  ⋮ → "Add to Home screen"  and confirm.
-    4. The shortcut behaves like the iOS widget — tap to open the index page.
+  SETUP (local file, no hosting):
+    1. Open https://raw.githubusercontent.com/avielj/IsraelSecurityIndices/main/android/widget.html
+       in Chrome on your Android phone.
+    2. Tap  ⋮ → Share → Download  (saves to Downloads folder).
+    3. Open the Files app → Downloads → tap widget.html → opens in Chrome.
+    4. Tap  ⋮ → "Add to Home screen"  and confirm.
+    Done — the shortcut on your home screen fetches live data every time you open it.
+
+  ALTERNATIVE (hosted):
+    Enable GitHub Pages on the repo and navigate to:
+    https://YOUR_USERNAME.github.io/YOUR_REPO/android/widget.html
 
   DATA:
     Fetches the same data.json that GitHub Actions updates every 15 min.
-    Change DATA_URL below if you forked the repo.
 -->
 <html lang="he" dir="rtl">
 <head>
@@ -25,6 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>מדדים</title>
 
+  <!-- manifest only useful when served over https:// -->
   <link rel="manifest" href="manifest.json" />
 
   <style>
@@ -276,8 +281,8 @@
       if (!document.hidden) load();
     });
 
-    // ── Service Worker registration (enables PWA install) ─────
-    if ("serviceWorker" in navigator) {
+    // ── Service Worker (only when served over https://, not file://) ──
+    if ("serviceWorker" in navigator && location.protocol === "https:") {
       navigator.serviceWorker.register("./sw.js").catch(() => {});
     }
   </script>
