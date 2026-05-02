@@ -53,12 +53,12 @@ GitHub Actions (scrape.yml)
 Android doesn't have a Scriptable equivalent, but the included [`android/widget.html`](android/widget.html) is a **self-contained Progressive Web App** page that mimics the iOS widget look and can be pinned to your home screen.
 
 ### Setup
-1. Open this URL in **Chrome** on your Android phone (jsDelivr serves it as a proper webpage — no GitHub Pages setup needed):
+1. Enable GitHub Pages on the repo: **Settings → Pages → Branch: main / (root) → Save**.
+2. Open this URL in **Chrome** on your Android phone:
    ```
-   https://cdn.jsdelivr.net/gh/avielj/IsraelSecurityIndices@main/android/widget.html
+   https://avielj.github.io/IsraelSecurityIndices/android/widget.html
    ```
-2. Tap **⋮ → "Add to Home screen"** and confirm.
-3. Done — the shortcut fetches live data every time you open it.
+3. Tap **⋮ → "Add to Home screen"** and confirm.
 
 ### KWGT / Tasker (advanced)
 If you prefer a native homescreen widget (no browser):
