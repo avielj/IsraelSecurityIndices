@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-05-03T15:59:57Z",
+  "updatedAt": "2026-05-04T07:44:50Z",
   "indices": [
     {
       "name": "מדד בטחוניות",
       "short": "BITCHONI",
       "url": "https://indx.co.il/index/2160-index/",
       "tapUrl": "https://indx.co.il/index/2160-index/",
-      "price": "8,580.71",
-      "pct": "+1.54%",
-      "pctNum": 1.54,
+      "price": "—",
+      "pct": "—",
+      "pctNum": 0,
       "positive": true,
-      "ok": true
+      "ok": false
     },
     {
       "name": "מדד תשתיות",
