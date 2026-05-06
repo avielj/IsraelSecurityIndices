@@ -2,9 +2,9 @@ name: Scrape Indices
 
 on:
   schedule:
-    # Every 15 minutes, Sun–Thu (Israeli market days), 08:00–18:00 Israel time
-    # Israel is UTC+3 (IDT in summer), so 05:00–15:00 UTC
-    - cron: "0,15,30,45 5-15 * * 0,1,2,3,4"
+    # Every 15 minutes, Mon–Fri, 10:00–18:00 Israel time (UTC+3 = 07:00–15:00 UTC)
+    - cron: "0,15,30,45 7-14 * * 1-5"
+    - cron: "0 15 * * 1-5"
   workflow_dispatch: # allow manual trigger from the Actions tab
 
 jobs:
