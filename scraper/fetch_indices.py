@@ -72,34 +72,28 @@ def parse(html: str) -> dict:
     """
     Parse price and daily % change from a Bizportal index page.
 
-    The page contains a summary line like:
-        8,196.48 -3.86% נכון ל: 06/05/2026
-    and a detail row:
-        שער בסיס  8,525.26
-
-    We extract the price from the summary line and calculate the exact
-    percentage from (current - base) / base * 100 so we keep full precision.
+    The page embeds the current price in:
+        <div id="paper_rate" ...><span class="num">4,212.5</span>
+    and the daily change in:
+        <div id="paper_change" ...><span class="drop/rise" ...>
+            <span class="num">-4.22%</span>
     """
-    # Current price + displayed % (used as fallback)
-    summary_m = re.search(
-        r'([\d,]+\.\d+)\s+([-+]?\d+(?:\.\d+)?)%\s*נכון ל:',
-        html,
+    # Current price
+    price_m = re.search(
+        r'id="paper_rate"[^>]*>.*?<span class="num">([\d,]+\.?\d*)</span>',
+        html, re.DOTALL
     )
-    # Base price (שער בסיס / שער אחרון בסיס)
-    base_m = re.search(r'שער בסיס[^\d]*([\d,]+\.\d+)', html)
+    # Daily % change  (sign is embedded in the value, e.g. "-4.22%" or "2.36%")
+    pct_m = re.search(
+        r'id="paper_change"[^>]*>.*?<span class="num">([-+]?[\d,]+\.?\d*)%</span>',
+        html, re.DOTALL
+    )
 
-    if not summary_m:
+    if not (price_m and pct_m):
         return None
 
-    price_str = summary_m.group(1).replace(",", "")
-    price = float(price_str)
-
-    if base_m:
-        base = float(base_m.group(1).replace(",", ""))
-        pct_num = round((price - base) / base * 100, 4) if base else 0.0
-    else:
-        # fall back to the displayed percentage
-        pct_num = round(float(summary_m.group(2)), 4)
+    price = float(price_m.group(1).replace(",", ""))
+    pct_num = round(float(pct_m.group(1).replace(",", "")), 4)
 
     return {
         "price":    f"{price:,.2f}",
