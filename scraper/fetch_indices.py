@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scrapes מדד בטחוניות and מדד תשתיות from indx.co.il
+Scrapes מדד ת"א בטחוניות and אינדקס תשתיות לאומיות from bizportal.co.il
 and writes /data.json to the repo root.
 Run by GitHub Actions every 15 minutes during market hours.
 
@@ -20,18 +20,20 @@ except ImportError:
     import urllib.request
     _USE_CFFI = False
 
+_BIZPORTAL_BASE = "https://www.bizportal.co.il/capitalmarket/quote/indice"
+
 INDICES = [
     {
-        "name":  "מדד בטחוניות",
+        "name":  "מדד ת\"א בטחוניות",
         "short": "BITCHONI",
-        "url":   "https://indx.co.il/index/2160-index/",
-        "tapUrl":"https://indx.co.il/index/2160-index/",
+        "url":   f"{_BIZPORTAL_BASE}/785",
+        "tapUrl": f"{_BIZPORTAL_BASE}/785",
     },
     {
-        "name":  "מדד תשתיות",
+        "name":  "תשתיות לאומיות",
         "short": "TASHTIOT",
-        "url":   "https://indx.co.il/index/2156-index/",
-        "tapUrl":"https://indx.co.il/index/2156-index/",
+        "url":   f"{_BIZPORTAL_BASE}/2126",
+        "tapUrl": f"{_BIZPORTAL_BASE}/2126",
     },
 ]
 
@@ -45,13 +47,15 @@ _URLLIB_HEADERS = {
     "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8",
     "Accept-Encoding": "gzip, deflate",
     "Connection": "keep-alive",
+    "Referer": "https://www.bizportal.co.il/",
 }
 
 
 def fetch(url: str) -> str:
     """Fetch URL, impersonating Chrome via curl_cffi if available."""
     if _USE_CFFI:
-        r = cffi_requests.get(url, impersonate="chrome124", timeout=20)
+        r = cffi_requests.get(url, impersonate="chrome124", timeout=20,
+                              headers={"Referer": "https://www.bizportal.co.il/"})
         r.raise_for_status()
         return r.text
     # Fallback: stdlib urllib with browser-like headers
@@ -65,23 +69,42 @@ def fetch(url: str) -> str:
 
 
 def parse(html: str) -> dict:
-    # Price: first data-val after שער אחרון
-    pm = re.search(r'שער אחרון</p>[\s\S]{1,200}?data-val="([\d.]+)"', html)
-    # Change: data-val inside the שינוי יומי ipt_box (value already carries sign, e.g. "-0.06" or "1.75")
-    cm = re.search(
-        r'שינוי יומי</p>[\s\S]{1,300}?data-val="([+-]?[\d.]+)"[^>]*data-suf="%"',
+    """
+    Parse price and daily % change from a Bizportal index page.
+
+    The page contains a summary line like:
+        8,196.48 -3.86% נכון ל: 06/05/2026
+    and a detail row:
+        שער בסיס  8,525.26
+
+    We extract the price from the summary line and calculate the exact
+    percentage from (current - base) / base * 100 so we keep full precision.
+    """
+    # Current price + displayed % (used as fallback)
+    summary_m = re.search(
+        r'([\d,]+\.\d+)\s+([-+]?\d+(?:\.\d+)?)%\s*נכון ל:',
         html,
     )
-    if not (pm and cm):
+    # Base price (שער בסיס / שער אחרון בסיס)
+    base_m = re.search(r'שער בסיס[^\d]*([\d,]+\.\d+)', html)
+
+    if not summary_m:
         return None
 
-    price = float(pm.group(1))
-    pct_num = float(cm.group(1))
+    price_str = summary_m.group(1).replace(",", "")
+    price = float(price_str)
+
+    if base_m:
+        base = float(base_m.group(1).replace(",", ""))
+        pct_num = round((price - base) / base * 100, 4) if base else 0.0
+    else:
+        # fall back to the displayed percentage
+        pct_num = round(float(summary_m.group(2)), 4)
 
     return {
         "price":    f"{price:,.2f}",
         "pct":      f"{'+' if pct_num >= 0 else ''}{pct_num:.2f}%",
-        "pctNum":   round(pct_num, 4),
+        "pctNum":   pct_num,
         "positive": pct_num >= 0,
     }
 

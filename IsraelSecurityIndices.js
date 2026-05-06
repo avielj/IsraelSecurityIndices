@@ -1,7 +1,7 @@
 // ============================================================
 //  IsraelSecurityIndices — Scriptable iOS Widget
-//  מדד בטחוניות (indx code 2160, fund 5141882)
-//  מדד תשתיות  (indx code 2156, fund 5130604)
+//  מדד ת"א בטחוניות     (Bizportal code 785)
+//  תשתיות לאומיות ישראל (Bizportal code 2126)
 //  Styled like the iOS Stocks app (dark, colour-coded badges)
 //
 //  Data is updated every 15 min by GitHub Actions and stored
