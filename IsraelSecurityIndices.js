@@ -35,9 +35,8 @@ const C = {
 
 async function fetchData() {
   try {
-    const req = new Request(DATA_URL);
-    // bust CDN cache so we always get the latest commit
-    req.headers = { "Cache-Control": "no-cache" };
+    // Append timestamp to bust GitHub's CDN cache (Cache-Control header alone is not enough)
+    const req = new Request(DATA_URL + "?t=" + Date.now());
     const json = await req.loadJSON();
     return json; // { updatedAt, indices: [{name,short,price,pct,pctNum,positive,ok,tapUrl}] }
   } catch (_) {
