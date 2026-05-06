@@ -231,8 +231,8 @@ function buildLarge(widget, data, updatedAt) {
 async function main() {
   const json = await fetchData();
   const data = json ? json.indices : [
-    { name: "מדד בטחוניות", short: "BITCHONI", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://indx.co.il/index/2160-index/" },
-    { name: "מדד תשתיות",   short: "TASHTIOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://indx.co.il/index/2156-index/" },
+    { name: "מדד ת\"א בטחוניות", short: "BITCHONI", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/785" },
+    { name: "תשתיות לאומיות",    short: "TASHTIOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/2126" },
   ];
   // updatedAt from the JSON (e.g. "2026-05-01T10:30:00Z") → show as Israel time
   const updatedAt = json ? json.updatedAt : null;
