@@ -2,6 +2,7 @@
 //  IsraelSecurityIndices — Scriptable iOS Widget
 //  מדד ת"א בטחוניות     (Bizportal code 785)
 //  תשתיות לאומיות ישראל (Bizportal code 2126)
+//  אינדקס תעשיות ביטחוניות ישראל (Bizportal index code 2160)
 //  Styled like the iOS Stocks app (dark, colour-coded badges)
 //
 //  Data is updated every 15 min by GitHub Actions and stored
@@ -232,6 +233,7 @@ async function main() {
   const data = json ? json.indices : [
     { name: "מדד ת\"א בטחוניות", short: "BITCHONI", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/785" },
     { name: "תשתיות לאומיות",    short: "TASHTIOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/2126" },
+    { name: "אינדקס תעשיות ביטחוניות ישראל", short: "TAASIYOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160" },
   ];
   // updatedAt from the JSON (e.g. "2026-05-01T10:30:00Z") → show as Israel time
   const updatedAt = json ? json.updatedAt : null;

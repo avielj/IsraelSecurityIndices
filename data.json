@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-08T16:09:40Z",
+  "updatedAt": "2026-05-08T18:54:20Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
@@ -21,6 +21,17 @@
       "pct": "+1.28%",
       "pctNum": 1.28,
       "positive": true,
+      "ok": true
+    },
+    {
+      "name": "אינדקס תעשיות ביטחוניות ישראל",
+      "short": "TAASIYOT",
+      "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
+      "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
+      "price": "8,030.27",
+      "pct": "-0.40%",
+      "pctNum": -0.4,
+      "positive": false,
       "ok": true
     }
   ]

@@ -22,6 +22,8 @@ except ImportError:
 
 _BIZPORTAL_BASE = "https://www.bizportal.co.il/capitalmarket/quote/indice"
 
+_BIZPORTAL_INDEX_BASE = "https://www.bizportal.co.il/capitalmarket/indices/generalview"
+
 INDICES = [
     {
         "name":  "מדד ת\"א בטחוניות",
@@ -34,6 +36,12 @@ INDICES = [
         "short": "TASHTIOT",
         "url":   f"{_BIZPORTAL_BASE}/2126",
         "tapUrl": f"{_BIZPORTAL_BASE}/2126",
+    },
+    {
+        "name":  "אינדקס תעשיות ביטחוניות ישראל",
+        "short": "TAASIYOT",
+        "url":   f"{_BIZPORTAL_INDEX_BASE}/2160",
+        "tapUrl": f"{_BIZPORTAL_INDEX_BASE}/2160",
     },
 ]
 
@@ -77,6 +85,8 @@ def parse(html: str) -> dict:
     and the daily change in:
         <div id="paper_change" ...><span class="drop/rise" ...>
             <span class="num">-4.22%</span>
+
+    Bizportal's /capitalmarket/indices/generalview pages use the same ids.
     """
     # Current price
     price_m = re.search(

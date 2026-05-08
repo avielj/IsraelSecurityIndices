@@ -85,7 +85,7 @@
     /* ── Cards grid ──────────────────────────────────────────── */
     .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
       gap: 10px;
       flex: 1;
     }
@@ -204,9 +204,10 @@
 
   <script>
     // ── Config ────────────────────────────────────────────────
-    // Change this to your fork's raw data.json URL if needed:
-    const DATA_URL =
-      "https://raw.githubusercontent.com/avielj/IsraelSecurityIndices/main/data.json";
+    const DATA_URLS = [
+      "../data.json",
+      "https://raw.githubusercontent.com/avielj/IsraelSecurityIndices/main/data.json",
+    ];
 
     const REFRESH_MS = 15 * 60 * 1000; // 15 minutes
 
@@ -263,13 +264,15 @@
 
     // ── Fetch ─────────────────────────────────────────────────
     async function load() {
-      try {
-        const res  = await fetch(DATA_URL + "?t=" + Date.now());
-        const json = await res.json();
-        render(json);
-      } catch (_) {
-        render(null);
+      for (const url of DATA_URLS) {
+        try {
+          const res = await fetch(url + "?t=" + Date.now());
+          if (!res.ok) throw new Error("bad response");
+          render(await res.json());
+          return;
+        } catch (_) {}
       }
+      render(null);
     }
 
     // ── Boot ──────────────────────────────────────────────────

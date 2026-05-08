@@ -1,13 +1,14 @@
 # 📈 Israel Security Indices Widget
 
-Live home-screen widget (iOS + Android) for two Israeli defence/infrastructure indices:
+Live home-screen widget (iOS + Android) for Israeli defence/infrastructure indices:
 
-| Index | Short | indx.co.il |
-|-------|-------|-----------|
-| מדד בטחוניות | BITCHONI | [2160-index](https://indx.co.il/index/2160-index/) |
-| מדד תשתיות  | TASHTIOT | [2156-index](https://indx.co.il/index/2156-index/) |
+| Index | Short | Source |
+|-------|-------|--------|
+| מדד ת"א בטחוניות | BITCHONI | [Bizportal 785](https://www.bizportal.co.il/capitalmarket/quote/indice/785) |
+| תשתיות לאומיות | TASHTIOT | [Bizportal 2126](https://www.bizportal.co.il/capitalmarket/quote/indice/2126) |
+| אינדקס תעשיות ביטחוניות ישראל | TAASIYOT | [Bizportal 2160](https://www.bizportal.co.il/capitalmarket/indices/generalview/2160) |
 
-Data is scraped from [indx.co.il](https://indx.co.il) every **15 minutes** by GitHub Actions and written to [`data.json`](data.json) in this repo.  
+Data is scraped from [Bizportal](https://www.bizportal.co.il) every **15 minutes** by GitHub Actions and written to [`data.json`](data.json) in this repo.  
 The widgets just fetch that file — no backend server required.
 
 ---
@@ -43,8 +44,8 @@ GitHub Actions (scrape.yml)
 | Size | Shows |
 |------|-------|
 | Small | Single index (first one) |
-| Medium | Both indices side-by-side *(recommended)* |
-| Large | Both indices stacked with separator |
+| Medium | All indices side-by-side *(recommended)* |
+| Large | All indices stacked with separator |
 
 ---
 
@@ -81,15 +82,15 @@ $df(http_get("https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/dat
     {
       "name":     "מדד בטחוניות",
       "short":    "BITCHONI",
-      "url":      "https://indx.co.il/index/2160-index/",
-      "tapUrl":   "https://indx.co.il/index/2160-index/",
+      "url":      "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
+      "tapUrl":   "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "price":    "1,234.56",
       "pct":      "+1.23%",
       "pctNum":   1.23,
       "positive": true,
       "ok":       true
     },
-    { "...": "same shape for TASHTIOT" }
+    { "...": "same shape for the other indices" }
   ]
 }
 ```

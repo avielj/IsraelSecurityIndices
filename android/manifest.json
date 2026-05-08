@@ -1,7 +1,7 @@
 {
   "name": "מדדים — Israel Indices",
   "short_name": "מדדים",
-  "description": "Live prices for מדד בטחוניות and מדד תשתיות",
+  "description": "Live prices for Israeli security and infrastructure indices",
   "start_url": "./widget.html",
   "display": "standalone",
   "orientation": "portrait",
