@@ -52,6 +52,30 @@ function clrFor(d) {
   return d.pctNum >= 0 ? C.green : C.red;
 }
 
+function displayName(d) {
+  const names = {
+    BITCHONI: "ת\"א בטחוניות",
+    TASHTIOT: "תשתיות לאומיות",
+    TAASIYOT: "תעשיות ביטחוניות",
+    TECH35: "ת\"א טכנולוגיה 35",
+    INVEST: "ניהול השקעות ומסחר",
+  };
+  return names[d.short] || d.name;
+}
+
+function addChangeBadge(parent, d, fontSize, horizontalPadding) {
+  const badge = parent.addStack();
+  badge.backgroundColor = clrFor(d);
+  badge.cornerRadius = 6;
+  badge.setPadding(3, horizontalPadding, 3, horizontalPadding);
+  const label = badge.addText(d.pct);
+  label.font = Font.boldSystemFont(fontSize);
+  label.textColor = C.white;
+  label.lineLimit = 1;
+  label.minimumScaleFactor = 0.8;
+  return badge;
+}
+
 // ── Widget builders ───────────────────────────────────────────
 
 function formatUpdatedAt(updatedAt) {
@@ -110,15 +134,10 @@ function buildMedium(widget, data, updatedAt) {
       price.lineLimit = 1;
 
       const bw = card.addStack();
-      bw.backgroundColor = clrFor(d);
-      bw.cornerRadius = 5;
-      bw.setPadding(2, 6, 2, 6);
-      const pl = bw.addText(d.pct);
-      pl.font = Font.boldSystemFont(10);
-      pl.textColor = C.white;
+      addChangeBadge(bw, d, 10, 6);
 
       card.addSpacer(1);
-      const fn = card.addText(d.name);
+      const fn = card.addText(displayName(d));
       fn.font = Font.systemFont(8);
       fn.textColor = C.gray;
       fn.lineLimit = 1;
@@ -144,7 +163,7 @@ function buildSmall(widget, d, updatedAt) {
   tk.font = Font.boldSystemFont(13);
   tk.textColor = C.gray;
 
-  const fn = col.addText(d.name);
+  const fn = col.addText(displayName(d));
   fn.font = Font.systemFont(10);
   fn.textColor = C.gray;
   fn.lineLimit = 1;
@@ -159,33 +178,27 @@ function buildSmall(widget, d, updatedAt) {
   price.lineLimit = 1;
 
   const bw = col.addStack();
-  bw.backgroundColor = clrFor(d);
-  bw.cornerRadius = 6;
-  bw.setPadding(3, 8, 3, 8);
-  const pl = bw.addText(d.pct);
-  pl.font = Font.boldSystemFont(13);
-  pl.textColor = C.white;
+  addChangeBadge(bw, d, 13, 8);
 }
 
 function buildLarge(widget, data, updatedAt) {
   widget.backgroundColor = C.bg;
-  widget.setPadding(16, 18, 16, 18);
+  widget.setPadding(16, 20, 16, 20);
   widget.url = data[0].tapUrl;
-  const compact = data.length > 3;
 
   const hdr = widget.addStack();
   hdr.layoutHorizontally();
   hdr.centerAlignContent();
   const t = hdr.addText("מדדים");
-  t.font = Font.boldSystemFont(20);
+  t.font = Font.heavySystemFont(22);
   t.textColor = C.white;
   hdr.addSpacer();
   const ts = formatUpdatedAt(updatedAt);
-  const tl = hdr.addText(ts ? "עודכן " + ts : "");
-  tl.font = Font.systemFont(12);
+  const tl = hdr.addText(ts ? ts : "");
+  tl.font = Font.mediumSystemFont(12);
   tl.textColor = C.gray;
 
-  widget.addSpacer(compact ? 10 : 16);
+  widget.addSpacer(8);
 
   for (let i = 0; i < data.length; i++) {
     const d = data[i];
@@ -196,45 +209,39 @@ function buildLarge(widget, data, updatedAt) {
 
     const nc = row.addStack();
     nc.layoutVertically();
-    nc.spacing = 3;
+    nc.spacing = 1;
     const tk = nc.addText(d.short);
-    tk.font = Font.boldSystemFont(compact ? 14 : 16);
+    tk.font = Font.heavySystemFont(16);
     tk.textColor = C.white;
-    const fn = nc.addText(d.name);
-    fn.font = Font.systemFont(compact ? 10 : 11);
+    tk.lineLimit = 1;
+    const fn = nc.addText(displayName(d));
+    fn.font = Font.systemFont(11);
     fn.textColor = C.gray;
     fn.lineLimit = 1;
-    fn.minimumScaleFactor = 0.75;
+    fn.minimumScaleFactor = 0.85;
 
     row.addSpacer();
 
     const rc = row.addStack();
-    rc.layoutVertically();
-    rc.spacing = 4;
+    rc.layoutHorizontally();
+    rc.centerAlignContent();
+    rc.spacing = 10;
 
     const price = rc.addText(d.price);
-    price.font = Font.boldSystemFont(compact ? 19 : 22);
+    price.font = Font.heavySystemFont(19);
     price.textColor = C.white;
     price.rightAlignText();
-    price.minimumScaleFactor = 0.7;
+    price.minimumScaleFactor = 0.75;
+    price.lineLimit = 1;
 
-    const br = rc.addStack();
-    br.layoutHorizontally();
-    br.addSpacer();
-    const bw = br.addStack();
-    bw.backgroundColor = clrFor(d);
-    bw.cornerRadius = 6;
-    bw.setPadding(3, 10, 3, 10);
-    const pl = bw.addText(d.pct);
-    pl.font = Font.boldSystemFont(compact ? 11 : 13);
-    pl.textColor = C.white;
+    addChangeBadge(rc, d, 12, 9);
 
     if (i < data.length - 1) {
-      widget.addSpacer(compact ? 7 : 14);
+      widget.addSpacer(8);
       const sep = widget.addStack();
       sep.backgroundColor = C.sep;
       sep.size = new Size(0, 0.5);
-      widget.addSpacer(compact ? 7 : 14);
+      widget.addSpacer(8);
     }
   }
 }
