@@ -3,6 +3,8 @@
 //  מדד ת"א בטחוניות     (Bizportal code 785)
 //  תשתיות לאומיות ישראל (Bizportal code 2126)
 //  אינדקס תעשיות ביטחוניות ישראל (Bizportal index code 2160)
+//  מדד ת"א טכנולוגיה 35 (Bizportal index code 790)
+//  אינדקס חברות ניהול השקעות ומסחר בישראל (Bizportal index code 2155)
 //  Styled like the iOS Stocks app (dark, colour-coded badges)
 //
 //  Data is updated every 15 min by GitHub Actions and stored
@@ -62,7 +64,7 @@ function formatUpdatedAt(updatedAt) {
 
 function buildMedium(widget, data, updatedAt) {
   widget.backgroundColor = C.bg;
-  widget.setPadding(16, 16, 16, 16);
+  widget.setPadding(12, 14, 12, 14);
   widget.url = data[0].tapUrl;
 
   // Header
@@ -78,46 +80,54 @@ function buildMedium(widget, data, updatedAt) {
   tl.font = Font.systemFont(11);
   tl.textColor = C.gray;
 
-  widget.addSpacer(12);
+  widget.addSpacer(8);
 
-  // Side-by-side cards
-  const row = widget.addStack();
-  row.layoutHorizontally();
-  row.spacing = 10;
+  const rows = data.length > 3 ? [data.slice(0, 3), data.slice(3)] : [data];
+  for (let ri = 0; ri < rows.length; ri++) {
+    const row = widget.addStack();
+    row.layoutHorizontally();
+    row.spacing = 8;
 
-  for (const d of data) {
-    const card = row.addStack();
-    card.layoutVertically();
-    card.backgroundColor = C.card;
-    card.cornerRadius = 14;
-    card.setPadding(12, 14, 12, 14);
-    card.spacing = 5;
-    card.url = d.tapUrl;
+    for (const d of rows[ri]) {
+      const card = row.addStack();
+      card.layoutVertically();
+      card.backgroundColor = C.card;
+      card.cornerRadius = 10;
+      card.setPadding(8, 10, 8, 10);
+      card.spacing = 3;
+      card.url = d.tapUrl;
 
-    const ticker = card.addText(d.short);
-    ticker.font = Font.boldSystemFont(11);
-    ticker.textColor = C.gray;
+      const ticker = card.addText(d.short);
+      ticker.font = Font.boldSystemFont(10);
+      ticker.textColor = C.gray;
+      ticker.lineLimit = 1;
+      ticker.minimumScaleFactor = 0.75;
 
-    const price = card.addText(d.price);
-    price.font = Font.boldSystemFont(d.price.length > 8 ? 18 : 22);
-    price.textColor = C.white;
-    price.minimumScaleFactor = 0.65;
-    price.lineLimit = 1;
+      const price = card.addText(d.price);
+      price.font = Font.boldSystemFont(d.price.length > 8 ? 14 : 16);
+      price.textColor = C.white;
+      price.minimumScaleFactor = 0.55;
+      price.lineLimit = 1;
 
-    const bw = card.addStack();
-    bw.backgroundColor = clrFor(d);
-    bw.cornerRadius = 6;
-    bw.setPadding(3, 8, 3, 8);
-    const pl = bw.addText(d.pct);
-    pl.font = Font.boldSystemFont(13);
-    pl.textColor = C.white;
+      const bw = card.addStack();
+      bw.backgroundColor = clrFor(d);
+      bw.cornerRadius = 5;
+      bw.setPadding(2, 6, 2, 6);
+      const pl = bw.addText(d.pct);
+      pl.font = Font.boldSystemFont(10);
+      pl.textColor = C.white;
 
-    card.addSpacer(2);
-    const fn = card.addText(d.name);
-    fn.font = Font.systemFont(9);
-    fn.textColor = C.gray;
-    fn.lineLimit = 1;
-    fn.minimumScaleFactor = 0.7;
+      card.addSpacer(1);
+      const fn = card.addText(d.name);
+      fn.font = Font.systemFont(8);
+      fn.textColor = C.gray;
+      fn.lineLimit = 1;
+      fn.minimumScaleFactor = 0.65;
+    }
+
+    if (ri < rows.length - 1) {
+      widget.addSpacer(7);
+    }
   }
 }
 
@@ -159,8 +169,9 @@ function buildSmall(widget, d, updatedAt) {
 
 function buildLarge(widget, data, updatedAt) {
   widget.backgroundColor = C.bg;
-  widget.setPadding(18, 18, 18, 18);
+  widget.setPadding(16, 18, 16, 18);
   widget.url = data[0].tapUrl;
+  const compact = data.length > 3;
 
   const hdr = widget.addStack();
   hdr.layoutHorizontally();
@@ -174,7 +185,7 @@ function buildLarge(widget, data, updatedAt) {
   tl.font = Font.systemFont(12);
   tl.textColor = C.gray;
 
-  widget.addSpacer(16);
+  widget.addSpacer(compact ? 10 : 16);
 
   for (let i = 0; i < data.length; i++) {
     const d = data[i];
@@ -187,11 +198,13 @@ function buildLarge(widget, data, updatedAt) {
     nc.layoutVertically();
     nc.spacing = 3;
     const tk = nc.addText(d.short);
-    tk.font = Font.boldSystemFont(16);
+    tk.font = Font.boldSystemFont(compact ? 14 : 16);
     tk.textColor = C.white;
     const fn = nc.addText(d.name);
-    fn.font = Font.systemFont(11);
+    fn.font = Font.systemFont(compact ? 10 : 11);
     fn.textColor = C.gray;
+    fn.lineLimit = 1;
+    fn.minimumScaleFactor = 0.75;
 
     row.addSpacer();
 
@@ -200,7 +213,7 @@ function buildLarge(widget, data, updatedAt) {
     rc.spacing = 4;
 
     const price = rc.addText(d.price);
-    price.font = Font.boldSystemFont(22);
+    price.font = Font.boldSystemFont(compact ? 19 : 22);
     price.textColor = C.white;
     price.rightAlignText();
     price.minimumScaleFactor = 0.7;
@@ -213,15 +226,15 @@ function buildLarge(widget, data, updatedAt) {
     bw.cornerRadius = 6;
     bw.setPadding(3, 10, 3, 10);
     const pl = bw.addText(d.pct);
-    pl.font = Font.boldSystemFont(13);
+    pl.font = Font.boldSystemFont(compact ? 11 : 13);
     pl.textColor = C.white;
 
     if (i < data.length - 1) {
-      widget.addSpacer(14);
+      widget.addSpacer(compact ? 7 : 14);
       const sep = widget.addStack();
       sep.backgroundColor = C.sep;
       sep.size = new Size(0, 0.5);
-      widget.addSpacer(14);
+      widget.addSpacer(compact ? 7 : 14);
     }
   }
 }
@@ -234,6 +247,8 @@ async function main() {
     { name: "מדד ת\"א בטחוניות", short: "BITCHONI", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/785" },
     { name: "תשתיות לאומיות",    short: "TASHTIOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/quote/indice/2126" },
     { name: "אינדקס תעשיות ביטחוניות ישראל", short: "TAASIYOT", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160" },
+    { name: "מדד ת\"א טכנולוגיה 35", short: "TECH35", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/indices/performance/790" },
+    { name: "אינדקס חברות ניהול השקעות ומסחר בישראל", short: "INVEST", price: "—", pct: "—", pctNum: 0, ok: false, tapUrl: "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155" },
   ];
   // updatedAt from the JSON (e.g. "2026-05-01T10:30:00Z") → show as Israel time
   const updatedAt = json ? json.updatedAt : null;

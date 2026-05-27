@@ -1,12 +1,14 @@
 # 📈 Israel Security Indices Widget
 
-Live home-screen widget (iOS + Android) for Israeli defence/infrastructure indices:
+Live home-screen widget (iOS + Android) for Israeli market indices:
 
 | Index | Short | Source |
 |-------|-------|--------|
 | מדד ת"א בטחוניות | BITCHONI | [Bizportal 785](https://www.bizportal.co.il/capitalmarket/quote/indice/785) |
 | תשתיות לאומיות | TASHTIOT | [Bizportal 2126](https://www.bizportal.co.il/capitalmarket/quote/indice/2126) |
 | אינדקס תעשיות ביטחוניות ישראל | TAASIYOT | [Bizportal 2160](https://www.bizportal.co.il/capitalmarket/indices/generalview/2160) |
+| מדד ת"א טכנולוגיה 35 | TECH35 | [Bizportal 790](https://www.bizportal.co.il/capitalmarket/indices/performance/790) |
+| אינדקס חברות ניהול השקעות ומסחר בישראל | INVEST | [Bizportal 2155](https://www.bizportal.co.il/capitalmarket/indices/generalview/2155) |
 
 Data is scraped from [Bizportal](https://www.bizportal.co.il) every **15 minutes** by GitHub Actions and written to [`data.json`](data.json) in this repo.  
 The widgets just fetch that file — no backend server required.
@@ -44,7 +46,7 @@ GitHub Actions (scrape.yml)
 | Size | Shows |
 |------|-------|
 | Small | Single index (first one) |
-| Medium | All indices side-by-side *(recommended)* |
+| Medium | All indices in a compact grid *(recommended)* |
 | Large | All indices stacked with separator |
 
 ---

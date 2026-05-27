@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scrapes מדד ת"א בטחוניות and אינדקס תשתיות לאומיות from bizportal.co.il
+Scrapes selected Israeli indices from bizportal.co.il
 and writes /data.json to the repo root.
 Run by GitHub Actions every 15 minutes during market hours.
 
@@ -24,6 +24,8 @@ _BIZPORTAL_BASE = "https://www.bizportal.co.il/capitalmarket/quote/indice"
 
 _BIZPORTAL_INDEX_BASE = "https://www.bizportal.co.il/capitalmarket/indices/generalview"
 
+_BIZPORTAL_PERFORMANCE_BASE = "https://www.bizportal.co.il/capitalmarket/indices/performance"
+
 INDICES = [
     {
         "name":  "מדד ת\"א בטחוניות",
@@ -42,6 +44,18 @@ INDICES = [
         "short": "TAASIYOT",
         "url":   f"{_BIZPORTAL_INDEX_BASE}/2160",
         "tapUrl": f"{_BIZPORTAL_INDEX_BASE}/2160",
+    },
+    {
+        "name":  "מדד ת\"א טכנולוגיה 35",
+        "short": "TECH35",
+        "url":   f"{_BIZPORTAL_PERFORMANCE_BASE}/790",
+        "tapUrl": f"{_BIZPORTAL_PERFORMANCE_BASE}/790",
+    },
+    {
+        "name":  "אינדקס חברות ניהול השקעות ומסחר בישראל",
+        "short": "INVEST",
+        "url":   f"{_BIZPORTAL_INDEX_BASE}/2155",
+        "tapUrl": f"{_BIZPORTAL_INDEX_BASE}/2155",
     },
 ]
 
@@ -86,7 +100,8 @@ def parse(html: str) -> dict:
         <div id="paper_change" ...><span class="drop/rise" ...>
             <span class="num">-4.22%</span>
 
-    Bizportal's /capitalmarket/indices/generalview pages use the same ids.
+    Bizportal's /capitalmarket/indices/generalview and performance pages use
+    the same ids.
     """
     # Current price
     price_m = re.search(
