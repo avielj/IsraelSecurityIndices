@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-28T14:30:31Z",
+  "updatedAt": "2026-05-28T14:43:28Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,620.13",
-      "pct": "+1.92%",
-      "pctNum": 1.92,
+      "price": "2,617.21",
+      "pct": "+1.81%",
+      "pctNum": 1.81,
       "positive": true,
       "ok": true
     },
