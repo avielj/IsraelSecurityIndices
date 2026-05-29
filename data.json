@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-29T10:50:02Z",
+  "updatedAt": "2026-05-29T11:00:28Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "6,333.07",
-      "pct": "+1.52%",
-      "pctNum": 1.52,
+      "price": "6,331.56",
+      "pct": "+1.50%",
+      "pctNum": 1.5,
       "positive": true,
       "ok": true
     },
