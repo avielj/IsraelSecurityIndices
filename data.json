@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-06-08T13:00:31Z",
+  "updatedAt": "2026-06-08T13:15:18Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "4,018.71",
-      "pct": "-0.56%",
-      "pctNum": -0.56,
-      "positive": false,
+      "price": "4,041.79",
+      "pct": "+0.01%",
+      "pctNum": 0.01,
+      "positive": true,
       "ok": true
     },
     {
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,877.98",
-      "pct": "-0.46%",
-      "pctNum": -0.46,
+      "price": "5,885.13",
+      "pct": "-0.34%",
+      "pctNum": -0.34,
       "positive": false,
       "ok": true
     },
@@ -28,10 +28,10 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "8,016.53",
-      "pct": "-0.26%",
-      "pctNum": -0.26,
-      "positive": false,
+      "price": "8,062.67",
+      "pct": "+0.31%",
+      "pctNum": 0.31,
+      "positive": true,
       "ok": true
     },
     {
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,505.94",
-      "pct": "-1.09%",
-      "pctNum": -1.09,
+      "price": "2,515.22",
+      "pct": "-0.73%",
+      "pctNum": -0.73,
       "positive": false,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,889.90",
-      "pct": "+0.32%",
-      "pctNum": 0.32,
+      "price": "8,924.20",
+      "pct": "+0.71%",
+      "pctNum": 0.71,
       "positive": true,
       "ok": true
     }
