@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-06-12T07:45:17Z",
+  "updatedAt": "2026-06-12T08:01:23Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "4,158.19",
-      "pct": "+1.47%",
-      "pctNum": 1.47,
+      "price": "—",
+      "pct": "—",
+      "pctNum": 0,
       "positive": true,
-      "ok": true
+      "ok": false
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,816.96",
-      "pct": "+1.56%",
-      "pctNum": 1.56,
+      "price": "—",
+      "pct": "—",
+      "pctNum": 0,
       "positive": true,
-      "ok": true
+      "ok": false
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "8,392.81",
-      "pct": "+1.45%",
-      "pctNum": 1.45,
+      "price": "8,395.44",
+      "pct": "+1.48%",
+      "pctNum": 1.48,
       "positive": true,
       "ok": true
     },
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,521.84",
-      "pct": "+1.85%",
-      "pctNum": 1.85,
+      "price": "2,527.05",
+      "pct": "+2.07%",
+      "pctNum": 2.07,
       "positive": true,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,901.46",
-      "pct": "+1.61%",
-      "pctNum": 1.61,
+      "price": "8,936.69",
+      "pct": "+2.02%",
+      "pctNum": 2.02,
       "positive": true,
       "ok": true
     }
