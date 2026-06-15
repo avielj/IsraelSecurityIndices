@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-06-15T11:00:34Z",
+  "updatedAt": "2026-06-15T11:15:20Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,992.53",
-      "pct": "-3.07%",
-      "pctNum": -3.07,
+      "price": "4,005.41",
+      "pct": "-2.75%",
+      "pctNum": -2.75,
       "positive": false,
       "ok": true
     },
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,720.49",
-      "pct": "-2.68%",
-      "pctNum": -2.68,
+      "price": "5,745.59",
+      "pct": "-2.25%",
+      "pctNum": -2.25,
       "positive": false,
       "ok": true
     },
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,992.64",
-      "pct": "-3.10%",
-      "pctNum": -3.1,
+      "price": "8,013.36",
+      "pct": "-2.84%",
+      "pctNum": -2.84,
       "positive": false,
       "ok": true
     },
@@ -39,10 +39,10 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,544.43",
-      "pct": "-0.05%",
-      "pctNum": -0.05,
-      "positive": false,
+      "price": "2,554.18",
+      "pct": "+0.33%",
+      "pctNum": 0.33,
+      "positive": true,
       "ok": true
     },
     {
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,712.61",
-      "pct": "-3.72%",
-      "pctNum": -3.72,
+      "price": "8,804.23",
+      "pct": "-2.71%",
+      "pctNum": -2.71,
       "positive": false,
       "ok": true
     }
