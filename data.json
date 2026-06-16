@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-06-16T07:15:28Z",
+  "updatedAt": "2026-06-16T07:30:30Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,979.42",
-      "pct": "+0.23%",
-      "pctNum": 0.23,
-      "positive": true,
+      "price": "3,944.76",
+      "pct": "-0.64%",
+      "pctNum": -0.64,
+      "positive": false,
       "ok": true
     },
     {
@@ -17,10 +17,10 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,693.47",
-      "pct": "+0.03%",
-      "pctNum": 0.03,
-      "positive": true,
+      "price": "5,639.27",
+      "pct": "-0.93%",
+      "pctNum": -0.93,
+      "positive": false,
       "ok": true
     },
     {
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,976.11",
-      "pct": "-0.28%",
-      "pctNum": -0.28,
+      "price": "7,917.79",
+      "pct": "-1.01%",
+      "pctNum": -1.01,
       "positive": false,
       "ok": true
     },
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,520.66",
-      "pct": "-0.33%",
-      "pctNum": -0.33,
+      "price": "2,499.52",
+      "pct": "-1.17%",
+      "pctNum": -1.17,
       "positive": false,
       "ok": true
     },
@@ -50,10 +50,10 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,668.85",
-      "pct": "+0.21%",
-      "pctNum": 0.21,
-      "positive": true,
+      "price": "8,592.10",
+      "pct": "-0.68%",
+      "pctNum": -0.68,
+      "positive": false,
       "ok": true
     }
   ]
