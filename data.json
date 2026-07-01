@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-07-01T10:00:31Z",
+  "updatedAt": "2026-07-01T10:15:23Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,767.88",
-      "pct": "-0.59%",
-      "pctNum": -0.59,
+      "price": "3,767.14",
+      "pct": "-0.61%",
+      "pctNum": -0.61,
       "positive": false,
       "ok": true
     },
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,598.82",
-      "pct": "+1.70%",
-      "pctNum": 1.7,
+      "price": "5,595.95",
+      "pct": "+1.64%",
+      "pctNum": 1.64,
       "positive": true,
       "ok": true
     },
@@ -28,7 +28,7 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,421.82",
+      "price": "7,422.09",
       "pct": "-0.23%",
       "pctNum": -0.23,
       "positive": false,
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,373.43",
-      "pct": "+1.57%",
-      "pctNum": 1.57,
+      "price": "2,373.94",
+      "pct": "+1.59%",
+      "pctNum": 1.59,
       "positive": true,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,369.59",
-      "pct": "+1.40%",
-      "pctNum": 1.4,
+      "price": "8,363.97",
+      "pct": "+1.33%",
+      "pctNum": 1.33,
       "positive": true,
       "ok": true
     }
