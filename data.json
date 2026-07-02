@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-07-02T14:01:52Z",
+  "updatedAt": "2026-07-02T14:15:26Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,907.25",
-      "pct": "+2.80%",
-      "pctNum": 2.8,
+      "price": "3,913.04",
+      "pct": "+2.96%",
+      "pctNum": 2.96,
       "positive": true,
       "ok": true
     },
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,667.56",
-      "pct": "+0.55%",
-      "pctNum": 0.55,
+      "price": "5,674.90",
+      "pct": "+0.68%",
+      "pctNum": 0.68,
       "positive": true,
       "ok": true
     },
@@ -28,31 +28,31 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "—",
-      "pct": "—",
-      "pctNum": 0,
+      "price": "7,739.15",
+      "pct": "+3.21%",
+      "pctNum": 3.21,
       "positive": true,
-      "ok": false
+      "ok": true
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "—",
-      "pct": "—",
-      "pctNum": 0,
+      "price": "2,403.06",
+      "pct": "+1.21%",
+      "pctNum": 1.21,
       "positive": true,
-      "ok": false
+      "ok": true
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,331.98",
-      "pct": "-0.73%",
-      "pctNum": -0.73,
+      "price": "8,355.58",
+      "pct": "-0.45%",
+      "pctNum": -0.45,
       "positive": false,
       "ok": true
     }
