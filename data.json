@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-08T09:15:21Z",
+  "updatedAt": "2026-07-08T09:29:38Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,913.68",
+      "price": "3,913.89",
       "pct": "-0.37%",
       "pctNum": -0.37,
       "positive": false,
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,539.14",
-      "pct": "-1.95%",
-      "pctNum": -1.95,
+      "price": "5,530.74",
+      "pct": "-2.10%",
+      "pctNum": -2.1,
       "positive": false,
       "ok": true
     },
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,774.31",
-      "pct": "-0.13%",
-      "pctNum": -0.13,
+      "price": "7,766.01",
+      "pct": "-0.24%",
+      "pctNum": -0.24,
       "positive": false,
       "ok": true
     },
@@ -39,7 +39,7 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,267.38",
+      "price": "2,267.43",
       "pct": "-2.01%",
       "pctNum": -2.01,
       "positive": false,
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,305.01",
-      "pct": "-1.73%",
-      "pctNum": -1.73,
+      "price": "8,267.22",
+      "pct": "-2.18%",
+      "pctNum": -2.18,
       "positive": false,
       "ok": true
     }
