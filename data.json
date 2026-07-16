@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-16T13:00:41Z",
+  "updatedAt": "2026-07-16T13:02:53Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,783.16",
+      "price": "3,783.06",
       "pct": "+0.58%",
       "pctNum": 0.58,
       "positive": true,
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,706.59",
-      "pct": "+1.06%",
-      "pctNum": 1.06,
+      "price": "5,708.44",
+      "pct": "+1.09%",
+      "pctNum": 1.09,
       "positive": true,
       "ok": true
     },
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,507.25",
-      "pct": "+0.71%",
-      "pctNum": 0.71,
+      "price": "7,511.49",
+      "pct": "+0.77%",
+      "pctNum": 0.77,
       "positive": true,
       "ok": true
     },
@@ -39,7 +39,7 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,347.91",
+      "price": "2,347.99",
       "pct": "-0.82%",
       "pctNum": -0.82,
       "positive": false,
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,367.10",
-      "pct": "-0.70%",
-      "pctNum": -0.7,
+      "price": "8,365.05",
+      "pct": "-0.72%",
+      "pctNum": -0.72,
       "positive": false,
       "ok": true
     }
