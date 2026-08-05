@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-08-05T14:30:34Z",
+  "updatedAt": "2026-08-05T14:45:23Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,790.60",
-      "pct": "+1.53%",
-      "pctNum": 1.53,
+      "price": "3,755.18",
+      "pct": "+0.59%",
+      "pctNum": 0.59,
       "positive": true,
       "ok": true
     },
