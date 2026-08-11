@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-08-11T07:00:30Z",
+  "updatedAt": "2026-08-11T07:15:25Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,644.97",
-      "pct": "+0.69%",
-      "pctNum": 0.69,
-      "positive": true,
+      "price": "3,604.55",
+      "pct": "-0.43%",
+      "pctNum": -0.43,
+      "positive": false,
       "ok": true
     },
     {
@@ -17,10 +17,10 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,260.79",
-      "pct": "+0.31%",
-      "pctNum": 0.31,
-      "positive": true,
+      "price": "5,216.19",
+      "pct": "-0.54%",
+      "pctNum": -0.54,
+      "positive": false,
       "ok": true
     },
     {
@@ -28,10 +28,10 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "7,091.38",
-      "pct": "+0.15%",
-      "pctNum": 0.15,
-      "positive": true,
+      "price": "7,028.68",
+      "pct": "-0.74%",
+      "pctNum": -0.74,
+      "positive": false,
       "ok": true
     },
     {
@@ -39,10 +39,10 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,259.99",
-      "pct": "+0.28%",
-      "pctNum": 0.28,
-      "positive": true,
+      "price": "2,244.61",
+      "pct": "-0.40%",
+      "pctNum": -0.4,
+      "positive": false,
       "ok": true
     },
     {
