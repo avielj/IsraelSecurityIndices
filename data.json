@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T14:30:27Z",
+  "updatedAt": "2026-08-13T14:45:19Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "7,922.51",
-      "pct": "+1.44%",
-      "pctNum": 1.44,
+      "price": "7,933.79",
+      "pct": "+1.58%",
+      "pctNum": 1.58,
       "positive": true,
       "ok": true
     }
