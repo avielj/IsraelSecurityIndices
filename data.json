@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-08-25T08:00:29Z",
+  "updatedAt": "2026-08-25T08:15:18Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,248.75",
-      "pct": "-0.31%",
-      "pctNum": -0.31,
+      "price": "3,240.81",
+      "pct": "-0.55%",
+      "pctNum": -0.55,
       "positive": false,
       "ok": true
     },
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,292.31",
-      "pct": "-0.13%",
-      "pctNum": -0.13,
+      "price": "5,276.72",
+      "pct": "-0.43%",
+      "pctNum": -0.43,
       "positive": false,
       "ok": true
     },
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,336.18",
-      "pct": "-0.60%",
-      "pctNum": -0.6,
+      "price": "6,311.98",
+      "pct": "-0.98%",
+      "pctNum": -0.98,
       "positive": false,
       "ok": true
     },
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,117.26",
-      "pct": "+0.53%",
-      "pctNum": 0.53,
+      "price": "2,108.68",
+      "pct": "+0.12%",
+      "pctNum": 0.12,
       "positive": true,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "7,826.46",
-      "pct": "+0.37%",
-      "pctNum": 0.37,
+      "price": "7,818.08",
+      "pct": "+0.27%",
+      "pctNum": 0.27,
       "positive": true,
       "ok": true
     }
