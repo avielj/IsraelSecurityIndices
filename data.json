@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T15:36:01Z",
+  "updatedAt": "2026-08-25T15:45:20Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
@@ -17,10 +17,10 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,295.45",
-      "pct": "-0.07%",
-      "pctNum": -0.07,
-      "positive": false,
+      "price": "5,302.28",
+      "pct": "+0.05%",
+      "pctNum": 0.05,
+      "positive": true,
       "ok": true
     },
     {
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,258.71",
-      "pct": "-1.82%",
-      "pctNum": -1.82,
+      "price": "6,251.67",
+      "pct": "-1.93%",
+      "pctNum": -1.93,
       "positive": false,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "7,883.78",
-      "pct": "+1.11%",
-      "pctNum": 1.11,
+      "price": "7,890.69",
+      "pct": "+1.20%",
+      "pctNum": 1.2,
       "positive": true,
       "ok": true
     }
