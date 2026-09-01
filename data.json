@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-08-31T20:34:08Z",
+  "updatedAt": "2026-09-01T07:00:35Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,213.95",
-      "pct": "-0.48%",
-      "pctNum": -0.48,
-      "positive": false,
+      "price": "3,215.75",
+      "pct": "+0.06%",
+      "pctNum": 0.06,
+      "positive": true,
       "ok": true
     },
     {
@@ -17,10 +17,10 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,380.91",
-      "pct": "+0.27%",
-      "pctNum": 0.27,
-      "positive": true,
+      "price": "5,358.49",
+      "pct": "-0.42%",
+      "pctNum": -0.42,
+      "positive": false,
       "ok": true
     },
     {
@@ -28,10 +28,10 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,225.33",
-      "pct": "+0.16%",
-      "pctNum": 0.16,
-      "positive": true,
+      "price": "6,222.76",
+      "pct": "-0.04%",
+      "pctNum": -0.04,
+      "positive": false,
       "ok": true
     },
     {
@@ -39,9 +39,9 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,117.60",
-      "pct": "-1.01%",
-      "pctNum": -1.01,
+      "price": "2,116.01",
+      "pct": "-0.08%",
+      "pctNum": -0.08,
       "positive": false,
       "ok": true
     },
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,242.00",
-      "pct": "+0.52%",
-      "pctNum": 0.52,
+      "price": "8,260.94",
+      "pct": "+0.23%",
+      "pctNum": 0.23,
       "positive": true,
       "ok": true
     }
