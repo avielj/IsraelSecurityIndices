@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-01T14:15:18Z",
+  "updatedAt": "2026-09-01T14:30:34Z",
   "indices": [
     {
       "name": "מדד ת\"א בטחוניות",
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/785",
-      "price": "3,291.69",
-      "pct": "+2.42%",
-      "pctNum": 2.42,
+      "price": "3,298.89",
+      "pct": "+2.64%",
+      "pctNum": 2.64,
       "positive": true,
       "ok": true
     },
@@ -17,9 +17,9 @@
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/quote/indice/2126",
-      "price": "5,445.54",
-      "pct": "+1.20%",
-      "pctNum": 1.2,
+      "price": "5,453.05",
+      "pct": "+1.34%",
+      "pctNum": 1.34,
       "positive": true,
       "ok": true
     },
@@ -28,9 +28,9 @@
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,404.32",
-      "pct": "+2.88%",
-      "pctNum": 2.88,
+      "price": "6,428.73",
+      "pct": "+3.27%",
+      "pctNum": 3.27,
       "positive": true,
       "ok": true
     },
@@ -39,7 +39,7 @@
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,118.05",
+      "price": "2,118.04",
       "pct": "+0.02%",
       "pctNum": 0.02,
       "positive": true,
@@ -50,9 +50,9 @@
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,321.24",
-      "pct": "+0.96%",
-      "pctNum": 0.96,
+      "price": "8,342.85",
+      "pct": "+1.22%",
+      "pctNum": 1.22,
       "positive": true,
       "ok": true
     }
