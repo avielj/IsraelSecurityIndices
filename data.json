@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T14:15:03Z",
+  "updatedAt": "2026-09-04T14:30:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,7 +14,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-04T14:15:03Z"
+      "lastOkAt": "2026-09-04T14:30:03Z"
     },
     {
       "name": "תשתיות לאומיות",
@@ -27,7 +27,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-04T14:15:03Z"
+      "lastOkAt": "2026-09-04T14:30:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,7 +40,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-04T14:15:03Z"
+      "lastOkAt": "2026-09-04T14:30:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
@@ -53,7 +53,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-04T14:15:03Z"
+      "lastOkAt": "2026-09-04T14:30:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-04T14:15:03Z"
+      "lastOkAt": "2026-09-04T14:30:03Z"
     }
   ]
 }
