@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 """
-Scrapes selected Israeli indices from bizportal.co.il
-and writes /data.json to the repo root.
-Run by GitHub Actions every 15 minutes during market hours.
+Scrapes selected Israeli indices from bizportal.co.il and writes data.json.
 
-Requires:  pip install curl-cffi
-  curl_cffi impersonates Chrome's TLS fingerprint, bypassing Cloudflare's
-  bot detection that blocks Python urllib/requests from datacenter IPs.
+RUNS ON THE ISRAELI VPS, NOT GITHUB ACTIONS.
+bizportal serves the pages to Israeli IPs but not to GitHub's US runners; the
+Action scraped happily for months and wrote "—" for all five indices while
+reporting success. Verified 2026-09-04: identical code returns real prices from
+the VPS and from a home connection, nothing from CI.
+
+Behaviour differences from the old CI version:
+  * A failing index KEEPS its previous value (marked stale) instead of being
+    overwritten with "—". A stale number beats no number on the widget.
+  * If EVERY index fails, data.json is left untouched and the script exits 1,
+    so the failure is loud instead of being committed as dashes.
 """
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -18,148 +25,124 @@ try:
     _USE_CFFI = True
 except ImportError:
     import urllib.request
+    import gzip
     _USE_CFFI = False
 
-_BIZPORTAL_BASE = "https://www.bizportal.co.il/capitalmarket/quote/indice"
-
-_BIZPORTAL_INDEX_BASE = "https://www.bizportal.co.il/capitalmarket/indices/generalview"
-
-_BIZPORTAL_PERFORMANCE_BASE = "https://www.bizportal.co.il/capitalmarket/indices/performance"
+# NOTE: /capitalmarket/quote/indice/<id> now 301-redirects to
+# /capitalmarket/indices/generalview/<id>. Point straight at the target.
+_GENERAL = "https://www.bizportal.co.il/capitalmarket/indices/generalview"
+_PERF = "https://www.bizportal.co.il/capitalmarket/indices/performance"
 
 INDICES = [
-    {
-        "name":  "מדד ת\"א בטחוניות",
-        "short": "BITCHONI",
-        "url":   f"{_BIZPORTAL_BASE}/785",
-        "tapUrl": f"{_BIZPORTAL_BASE}/785",
-    },
-    {
-        "name":  "תשתיות לאומיות",
-        "short": "TASHTIOT",
-        "url":   f"{_BIZPORTAL_BASE}/2126",
-        "tapUrl": f"{_BIZPORTAL_BASE}/2126",
-    },
-    {
-        "name":  "אינדקס תעשיות ביטחוניות ישראל",
-        "short": "TAASIYOT",
-        "url":   f"{_BIZPORTAL_INDEX_BASE}/2160",
-        "tapUrl": f"{_BIZPORTAL_INDEX_BASE}/2160",
-    },
-    {
-        "name":  "מדד ת\"א טכנולוגיה 35",
-        "short": "TECH35",
-        "url":   f"{_BIZPORTAL_PERFORMANCE_BASE}/790",
-        "tapUrl": f"{_BIZPORTAL_PERFORMANCE_BASE}/790",
-    },
-    {
-        "name":  "אינדקס חברות ניהול השקעות ומסחר בישראל",
-        "short": "INVEST",
-        "url":   f"{_BIZPORTAL_INDEX_BASE}/2155",
-        "tapUrl": f"{_BIZPORTAL_INDEX_BASE}/2155",
-    },
+    {"name": 'מדד ת"א בטחוניות',                    "short": "BITCHONI", "url": f"{_GENERAL}/785"},
+    {"name": "תשתיות לאומיות",                       "short": "TASHTIOT", "url": f"{_GENERAL}/2126"},
+    {"name": "אינדקס תעשיות ביטחוניות ישראל",        "short": "TAASIYOT", "url": f"{_GENERAL}/2160"},
+    {"name": 'מדד ת"א טכנולוגיה 35',                 "short": "TECH35",   "url": f"{_PERF}/790"},
+    {"name": "אינדקס חברות ניהול השקעות ומסחר בישראל", "short": "INVEST",  "url": f"{_GENERAL}/2155"},
 ]
+for _i in INDICES:
+    _i["tapUrl"] = _i["url"]
 
-# Fallback headers for urllib (used when curl_cffi is unavailable)
-_URLLIB_HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    ),
+_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8",
     "Accept-Encoding": "gzip, deflate",
-    "Connection": "keep-alive",
     "Referer": "https://www.bizportal.co.il/",
 }
 
+OUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data.json")
+
 
 def fetch(url: str) -> str:
-    """Fetch URL, impersonating Chrome via curl_cffi if available."""
     if _USE_CFFI:
-        r = cffi_requests.get(url, impersonate="chrome124", timeout=20,
+        r = cffi_requests.get(url, impersonate="chrome124", timeout=25,
                               headers={"Referer": "https://www.bizportal.co.il/"})
         r.raise_for_status()
         return r.text
-    # Fallback: stdlib urllib with browser-like headers
-    import gzip
-    req = urllib.request.Request(url, headers=_URLLIB_HEADERS)
-    with urllib.request.urlopen(req, timeout=20) as r:
+    req = urllib.request.Request(url, headers=_HEADERS)
+    with urllib.request.urlopen(req, timeout=25) as r:
         raw = r.read()
         if r.info().get("Content-Encoding") == "gzip":
             raw = gzip.decompress(raw)
-        return raw.decode("utf-8")
+        return raw.decode("utf-8", "replace")
 
 
-def parse(html: str) -> dict:
-    """
-    Parse price and daily % change from a Bizportal index page.
-
-    The page embeds the current price in:
-        <div id="paper_rate" ...><span class="num">4,212.5</span>
-    and the daily change in:
-        <div id="paper_change" ...><span class="drop/rise" ...>
-            <span class="num">-4.22%</span>
-
-    Bizportal's /capitalmarket/indices/generalview and performance pages use
-    the same ids.
-    """
-    # Current price
-    price_m = re.search(
-        r'id="paper_rate"[^>]*>.*?<span class="num">([\d,]+\.?\d*)</span>',
-        html, re.DOTALL
-    )
-    # Daily % change  (sign is embedded in the value, e.g. "-4.22%" or "2.36%")
-    pct_m = re.search(
-        r'id="paper_change"[^>]*>.*?<span class="num">([-+]?[\d,]+\.?\d*)%</span>',
-        html, re.DOTALL
-    )
-
+def parse(html: str):
+    price_m = re.search(r'id="paper_rate"[^>]*>.*?<span class="num">([\d,]+\.?\d*)</span>',
+                        html, re.DOTALL)
+    pct_m = re.search(r'id="paper_change"[^>]*>.*?<span class="num">([-+]?[\d,]+\.?\d*)%</span>',
+                      html, re.DOTALL)
     if not (price_m and pct_m):
         return None
-
     price = float(price_m.group(1).replace(",", ""))
     pct_num = round(float(pct_m.group(1).replace(",", "")), 4)
-
     return {
-        "price":    f"{price:,.2f}",
-        "pct":      f"{'+' if pct_num >= 0 else ''}{pct_num:.2f}%",
-        "pctNum":   pct_num,
+        "price": f"{price:,.2f}",
+        "pct": f"{'+' if pct_num >= 0 else ''}{pct_num:.2f}%",
+        "pctNum": pct_num,
         "positive": pct_num >= 0,
     }
 
 
+def load_previous():
+    """Previous values, keyed by `short`, so a blip doesn't wipe the widget."""
+    try:
+        with open(OUT_PATH, encoding="utf-8") as f:
+            return {i["short"]: i for i in json.load(f).get("indices", [])}
+    except Exception:
+        return {}
+
+
 def main():
-    results = []
-    errors  = []
+    prev = load_previous()
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    results, errors, ok_count = [], [], 0
 
     for idx in INDICES:
         try:
-            html = fetch(idx["url"])
-            data = parse(html)
-            if data:
-                results.append({**idx, **data, "ok": True})
-            else:
-                raise ValueError("regex matched nothing")
+            data = parse(fetch(idx["url"]))
+            if not data:
+                raise ValueError("regex matched nothing (page markup changed?)")
+            results.append({**idx, **data, "ok": True, "stale": False, "lastOkAt": now})
+            ok_count += 1
         except Exception as e:
-            errors.append(str(e))
-            results.append({**idx, "price": "—", "pct": "—", "pctNum": 0, "positive": True, "ok": False})
+            errors.append(f"{idx['short']}: {e}")
+            p = prev.get(idx["short"])
+            if p and p.get("price") not in (None, "", "—"):
+                # Keep the last good number, flagged stale.
+                results.append({**idx,
+                                "price": p["price"], "pct": p["pct"],
+                                "pctNum": p.get("pctNum", 0),
+                                "positive": p.get("positive", True),
+                                "ok": False, "stale": True,
+                                "lastOkAt": p.get("lastOkAt")})
+            else:
+                results.append({**idx, "price": "—", "pct": "—", "pctNum": 0,
+                                "positive": True, "ok": False, "stale": False,
+                                "lastOkAt": None})
 
-    payload = {
-        "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "indices":   results,
-    }
+    if ok_count == 0:
+        # Total failure: leave data.json alone and make noise. Committing dashes
+        # over good data is what hid this bug for four months.
+        print(f"FATAL: all {len(INDICES)} indices failed, data.json left untouched", file=sys.stderr)
+        for e in errors:
+            print("  " + e, file=sys.stderr)
+        return 1
 
-    out_path = "data.json"
-    with open(out_path, "w", encoding="utf-8") as f:
+    payload = {"updatedAt": now, "okCount": ok_count, "total": len(INDICES), "indices": results}
+    with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
+        f.write("\n")
 
-    print(json.dumps(payload, ensure_ascii=False, indent=2))
-
+    print(f"{now}  ok={ok_count}/{len(INDICES)}  " +
+          "  ".join(f"{r['short']}={r['price']}({r['pct']}){'*' if r.get('stale') else ''}"
+                    for r in results))
     if errors:
-        # Print errors but don't fail the workflow — partial data is still useful.
-        # The widget gracefully handles ok=false entries by showing "—".
-        print("WARNINGS (partial failures):", errors, file=sys.stderr)
+        print("PARTIAL FAILURES:", "; ".join(errors), file=sys.stderr)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

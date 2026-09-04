@@ -1,17 +1,27 @@
 name: Scrape Indices
 
+# The scheduled run was REMOVED on 2026-09-04.
+#
+# bizportal.co.il does not serve GitHub's US-hosted runners. This workflow ran
+# every 15 minutes for months, "succeeded" every time, and wrote "—" for all
+# five indices because the scraper swallowed every exception and exited 0. The
+# widget dutifully displayed dashes.
+#
+# Verified the same day: identical code returns real prices from an Israeli IP.
+# The scraper now runs on the Israeli VPS (tv-linux, cron every 15 min during
+# market hours) and pushes data.json here directly. See scraper/fetch_indices.py.
+#
+# Re-enabling the schedule here would overwrite the VPS data — don't, unless
+# bizportal starts serving GitHub runners again.
+
 on:
-  schedule:
-    # Every 15 minutes, Mon–Fri, 10:00–18:00 Israel time (UTC+3 = 07:00–15:00 UTC)
-    - cron: "0,15,30,45 7-14 * * 1-5"
-    - cron: "0 15 * * 1-5"
-  workflow_dispatch: # allow manual trigger from the Actions tab
+  workflow_dispatch: # manual only
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # needed to commit data.json back to the repo
+      contents: write
 
     steps:
       - name: Checkout
@@ -33,7 +43,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          # only commit when data.json actually changed
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore: update index data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
