@@ -1,48 +1,35 @@
 name: Scrape Indices
 
-# The scheduled run was REMOVED on 2026-09-04.
+# RETIRED 2026-09-04 — this workflow no longer scrapes anything.
 #
-# bizportal.co.il does not serve GitHub's US-hosted runners. This workflow ran
-# every 15 minutes for months, "succeeded" every time, and wrote "—" for all
-# five indices because the scraper swallowed every exception and exited 0. The
-# widget dutifully displayed dashes.
+# Why: bizportal.co.il does not serve GitHub's US-hosted runners. This job ran
+# every 15 minutes for months, reported success every time, and wrote "—" for
+# all five indices, because the scraper caught every exception and exited 0.
+# The iPhone widget faithfully displayed dashes.
 #
-# Verified the same day: identical code returns real prices from an Israeli IP.
-# The scraper now runs on the Israeli VPS (tv-linux, cron every 15 min during
-# market hours) and pushes data.json here directly. See scraper/fetch_indices.py.
+# The scraper now runs on the Israeli VPS (user tv-linux, cron every 15 min
+# during TASE hours) and pushes data.json to this repo directly.
+#   VPS path: /home/tv-linux/israel-indices-watch/
 #
-# Re-enabling the schedule here would overwrite the VPS data — don't, unless
-# bizportal starts serving GitHub runners again.
+# The steps are kept as a no-op on purpose. Something outside this repo calls
+# the workflow_dispatch API on a 15-minute cadence (3108 dispatch runs vs 453
+# scheduled ones as of 2026-09-04) and has not been located yet. Leaving a real
+# job here would either email a failure every 15 minutes or overwrite the VPS
+# data with dashes. A green no-op does neither.
+#
+# Do NOT restore the scraping steps unless bizportal starts serving GitHub
+# runners — verify first, from a runner, that data.json comes back with ok=true.
 
 on:
-  workflow_dispatch: # manual only
+  workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install curl-cffi
-
-      - name: Run scraper
-        run: python scraper/fetch_indices.py
-
-      - name: Commit data.json if changed
+      - name: Explain that scraping moved to the VPS
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
-          git diff --cached --quiet && echo "No changes" || \
-            git commit -m "chore: update index data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push
+          echo "Scraping moved to the Israeli VPS on 2026-09-04."
+          echo "bizportal.co.il does not serve GitHub US runners."
+          echo "data.json is pushed here by /home/tv-linux/israel-indices-watch/run-scrape.sh"
+          echo "This workflow is intentionally a no-op."
