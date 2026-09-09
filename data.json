@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T11:45:08Z",
+  "updatedAt": "2026-09-09T12:00:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -8,26 +8,26 @@
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
-      "price": "3,344.87",
-      "pct": "-1.19%",
-      "pctNum": -1.19,
+      "price": "3,351.45",
+      "pct": "-1.00%",
+      "pctNum": -1.0,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-09T11:45:08Z"
+      "lastOkAt": "2026-09-09T12:00:03Z"
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
-      "price": "5,530.20",
-      "pct": "-1.36%",
-      "pctNum": -1.36,
+      "price": "5,530.70",
+      "pct": "-1.35%",
+      "pctNum": -1.35,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-09T11:45:08Z"
+      "lastOkAt": "2026-09-09T12:00:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,20 +40,20 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-09T11:45:08Z"
+      "lastOkAt": "2026-09-09T12:00:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,161.87",
-      "pct": "-1.00%",
-      "pctNum": -1.0,
+      "price": "2,165.36",
+      "pct": "-0.84%",
+      "pctNum": -0.84,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-09T11:45:08Z"
+      "lastOkAt": "2026-09-09T12:00:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-09T11:45:08Z"
+      "lastOkAt": "2026-09-09T12:00:03Z"
     }
   ]
 }
