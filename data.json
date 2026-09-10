@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T14:30:03Z",
+  "updatedAt": "2026-09-10T14:45:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,7 +14,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T14:30:03Z"
+      "lastOkAt": "2026-09-10T14:45:03Z"
     },
     {
       "name": "תשתיות לאומיות",
@@ -27,7 +27,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T14:30:03Z"
+      "lastOkAt": "2026-09-10T14:45:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,7 +40,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T14:30:03Z"
+      "lastOkAt": "2026-09-10T14:45:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
@@ -53,20 +53,20 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T14:30:03Z"
+      "lastOkAt": "2026-09-10T14:45:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,574.61",
-      "pct": "-2.21%",
-      "pctNum": -2.21,
+      "price": "8,585.78",
+      "pct": "-2.08%",
+      "pctNum": -2.08,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T14:30:03Z"
+      "lastOkAt": "2026-09-10T14:45:03Z"
     }
   ]
 }
