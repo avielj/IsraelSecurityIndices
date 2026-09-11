@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T15:00:03Z",
+  "updatedAt": "2026-09-11T07:00:02Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,33 +14,33 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T15:00:03Z"
+      "lastOkAt": "2026-09-11T07:00:02Z"
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
-      "price": "5,378.21",
-      "pct": "-2.52%",
-      "pctNum": -2.52,
+      "price": "5,382.67",
+      "pct": "-2.44%",
+      "pctNum": -2.44,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T15:00:03Z"
+      "lastOkAt": "2026-09-11T07:00:02Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,310.40",
-      "pct": "-0.67%",
-      "pctNum": -0.67,
+      "price": "6,309.17",
+      "pct": "-0.69%",
+      "pctNum": -0.69,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T15:00:03Z"
+      "lastOkAt": "2026-09-11T07:00:02Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
@@ -53,20 +53,20 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T15:00:03Z"
+      "lastOkAt": "2026-09-11T07:00:02Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,585.78",
-      "pct": "-2.08%",
-      "pctNum": -2.08,
+      "price": "8,570.15",
+      "pct": "-2.26%",
+      "pctNum": -2.26,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-10T15:00:03Z"
+      "lastOkAt": "2026-09-11T07:00:02Z"
     }
   ]
 }
