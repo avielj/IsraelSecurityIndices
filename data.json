@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T07:15:03Z",
+  "updatedAt": "2026-09-29T07:30:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -8,65 +8,65 @@
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
-      "price": "3,208.77",
-      "pct": "-0.49%",
-      "pctNum": -0.49,
+      "price": "3,209.71",
+      "pct": "-0.46%",
+      "pctNum": -0.46,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-29T07:15:03Z"
+      "lastOkAt": "2026-09-29T07:30:03Z"
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
-      "price": "5,117.43",
-      "pct": "+0.06%",
-      "pctNum": 0.06,
+      "price": "5,135.01",
+      "pct": "+0.40%",
+      "pctNum": 0.4,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-29T07:15:03Z"
+      "lastOkAt": "2026-09-29T07:30:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "6,266.20",
+      "price": "6,265.80",
       "pct": "-0.58%",
       "pctNum": -0.58,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-29T07:15:03Z"
+      "lastOkAt": "2026-09-29T07:30:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,084.52",
-      "pct": "-0.48%",
-      "pctNum": -0.48,
-      "positive": false,
+      "price": "2,095.46",
+      "pct": "+0.04%",
+      "pctNum": 0.04,
+      "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-29T07:15:03Z"
+      "lastOkAt": "2026-09-29T07:30:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
       "short": "INVEST",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2155",
-      "price": "8,391.97",
-      "pct": "-0.11%",
-      "pctNum": -0.11,
-      "positive": false,
+      "price": "8,428.97",
+      "pct": "+0.33%",
+      "pctNum": 0.33,
+      "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-09-29T07:15:03Z"
+      "lastOkAt": "2026-09-29T07:30:03Z"
     }
   ]
 }
