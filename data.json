@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T08:00:03Z",
+  "updatedAt": "2026-10-14T08:15:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -8,13 +8,13 @@
       "short": "BITCHONI",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/785",
-      "price": "3,100.91",
-      "pct": "+1.17%",
-      "pctNum": 1.17,
+      "price": "3,106.75",
+      "pct": "+1.36%",
+      "pctNum": 1.36,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-14T08:00:03Z"
+      "lastOkAt": "2026-10-14T08:15:03Z"
     },
     {
       "name": "תשתיות לאומיות",
@@ -27,7 +27,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-14T08:00:03Z"
+      "lastOkAt": "2026-10-14T08:15:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,20 +40,20 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-14T08:00:03Z"
+      "lastOkAt": "2026-10-14T08:15:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "2,061.60",
-      "pct": "+1.30%",
-      "pctNum": 1.3,
+      "price": "2,062.40",
+      "pct": "+1.34%",
+      "pctNum": 1.34,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-14T08:00:03Z"
+      "lastOkAt": "2026-10-14T08:15:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-14T08:00:03Z"
+      "lastOkAt": "2026-10-14T08:15:03Z"
     }
   ]
 }
