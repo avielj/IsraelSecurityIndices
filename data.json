@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T14:30:03Z",
+  "updatedAt": "2026-10-15T14:45:02Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,20 +14,20 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-15T14:30:03Z"
+      "lastOkAt": "2026-10-15T14:45:02Z"
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
-      "price": "5,076.29",
+      "price": "5,076.23",
       "pct": "-0.16%",
       "pctNum": -0.16,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-15T14:30:03Z"
+      "lastOkAt": "2026-10-15T14:45:02Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,7 +40,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-15T14:30:03Z"
+      "lastOkAt": "2026-10-15T14:45:02Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
@@ -53,7 +53,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-15T14:30:03Z"
+      "lastOkAt": "2026-10-15T14:45:02Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-10-15T14:30:03Z"
+      "lastOkAt": "2026-10-15T14:45:02Z"
     }
   ]
 }
