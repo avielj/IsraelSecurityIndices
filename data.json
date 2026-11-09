@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T15:30:03Z",
+  "updatedAt": "2026-11-09T15:45:02Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,7 +14,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-09T15:30:03Z"
+      "lastOkAt": "2026-11-09T15:45:02Z"
     },
     {
       "name": "תשתיות לאומיות",
@@ -27,7 +27,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-09T15:30:03Z"
+      "lastOkAt": "2026-11-09T15:45:02Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
@@ -40,20 +40,20 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-09T15:30:03Z"
+      "lastOkAt": "2026-11-09T15:45:02Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "1,946.49",
-      "pct": "+2.72%",
-      "pctNum": 2.72,
+      "price": "1,949.57",
+      "pct": "+2.89%",
+      "pctNum": 2.89,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-09T15:30:03Z"
+      "lastOkAt": "2026-11-09T15:45:02Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-09T15:30:03Z"
+      "lastOkAt": "2026-11-09T15:45:02Z"
     }
   ]
 }
