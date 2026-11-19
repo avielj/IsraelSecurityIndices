@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T15:15:03Z",
+  "updatedAt": "2026-11-19T15:30:03Z",
   "okCount": 5,
   "total": 5,
   "indices": [
@@ -14,46 +14,46 @@
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-19T15:15:03Z"
+      "lastOkAt": "2026-11-19T15:30:03Z"
     },
     {
       "name": "תשתיות לאומיות",
       "short": "TASHTIOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2126",
-      "price": "4,739.12",
-      "pct": "-1.48%",
-      "pctNum": -1.48,
+      "price": "4,730.42",
+      "pct": "-1.66%",
+      "pctNum": -1.66,
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-19T15:15:03Z"
+      "lastOkAt": "2026-11-19T15:30:03Z"
     },
     {
       "name": "אינדקס תעשיות ביטחוניות ישראל",
       "short": "TAASIYOT",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/generalview/2160",
-      "price": "5,686.84",
-      "pct": "+0.67%",
-      "pctNum": 0.67,
+      "price": "5,683.86",
+      "pct": "+0.62%",
+      "pctNum": 0.62,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-19T15:15:03Z"
+      "lastOkAt": "2026-11-19T15:30:03Z"
     },
     {
       "name": "מדד ת\"א טכנולוגיה 35",
       "short": "TECH35",
       "url": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
       "tapUrl": "https://www.bizportal.co.il/capitalmarket/indices/performance/790",
-      "price": "1,907.28",
-      "pct": "+0.39%",
-      "pctNum": 0.39,
+      "price": "1,900.32",
+      "pct": "+0.02%",
+      "pctNum": 0.02,
       "positive": true,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-19T15:15:03Z"
+      "lastOkAt": "2026-11-19T15:30:03Z"
     },
     {
       "name": "אינדקס חברות ניהול השקעות ומסחר בישראל",
@@ -66,7 +66,7 @@
       "positive": false,
       "ok": true,
       "stale": false,
-      "lastOkAt": "2026-11-19T15:15:03Z"
+      "lastOkAt": "2026-11-19T15:30:03Z"
     }
   ]
 }
